@@ -22,7 +22,18 @@ public class TwelveBalls {
 		for (int x = 0; x < 4; x++) {
 			threeSet[x] = 1.0;
 		}
-
+		Integer place = (int) (Math.random() * 13);
+		double weight = Math.random() * 2;
+		if (place < 5) {
+			oneSet[(place - 1)] = weight;
+		}
+		if (place < 9 && place > 4) {
+			oneSet[(place - 5)] = weight;
+		}
+		if (place > 8) {
+			oneSet[(place - 9)] = weight;
+		}
+		System.out.println(place + " " + weight);
 		twoSet[2] = .8;
 
 		setOne.setX(oneSet);
@@ -72,7 +83,7 @@ public class TwelveBalls {
 			rightCompare[0] = twoSet[2];
 			rightCompare[1] = oneSet[1];
 			rightCompare[2] = threeSet[3];
-			System.out.println("Left comparator 3, 6, 12");
+			System.out.println("Right comparator 3, 6, 12");
 			System.out.println("Heavier 5,1,2   3, 6, 12 Lighter");
 			b.setY(leftCompare);
 			a.setY(rightCompare);
@@ -146,21 +157,21 @@ public class TwelveBalls {
 
 	public static void getBasicScenario(ballSet c) {
 		double[] x = c.getX();
-		double b1 = x[0], b2 = x[1], b3 = x[2], b4 = x[3], b5=1;
-		
-		if(b2+b5 == b3+b4) {
-			if(b1 > b5) {
+		double b1 = x[0], b2 = x[1], b3 = x[2], b4 = x[3], b5 = 1;
+
+		if (b2 + b5 == b3 + b4) {
+			if (b1 > b5) {
 				System.out.println("b1 is the lighter odd ball");
-			} else if (b1 > b5 ){
+			} else if (b1 > b5) {
 				System.out.println("b1 is the heavier odd ball");
 			}
-		}else if(b2+b5 > b3+b4 == true){
-			if(b5+b4 > b2+b3 == true) {
+		} else if (b2 + b5 > b3 + b4 == true) {
+			if (b5 + b4 > b2 + b3 == true) {
 				System.out.println("b3 is the lighter odd ball");
-			} else if(b5+b4 < b2+b3 == true) {
-				
+			} else if (b5 + b4 < b2 + b3 == true) {
+
 			}
-			
+
 		}
 	}
 
